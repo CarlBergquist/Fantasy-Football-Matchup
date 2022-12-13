@@ -27,7 +27,7 @@ function NavComponent() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link href="#action1">Create Matchup</Nav.Link>
+                <Nav.Link href="matchup">Create Matchup</Nav.Link>
                 <NavDropdown
                   title="Account"
                   id={`offcanvasNavbarDropdown-expand-sm`}
