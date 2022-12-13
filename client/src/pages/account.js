@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-
-
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_MATCHUPS } from "../utils/queries";
 
 //This was pulled from the week 21 mini project
 const Account = () => {
+
     const { loading, data } = useQuery(QUERY_MATCHUPS, {
         fetchPolicy: "no-cache"
     })

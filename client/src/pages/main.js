@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-
-
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_MATCHUPS } from "../utils/queries";
+import NavComponent from "../components/nav";
 
 //This was pulled from the week 21 mini project
 const Main = () => {
@@ -15,6 +14,7 @@ const Main = () => {
 
 return (
 <div className="container">
+<NavComponent />
 <h1>All Matchups</h1>   
    {matchupList.length > 0 ? matchupList.map((matchup) => {  
     return (
