@@ -6,8 +6,8 @@ export default function Init() {
     return (
         <div className="">
             <h1>Fantasy Football Matchup Analyzer</h1>
-            <button>Login</button>
-            <button>Sign Up</button>
+            <a href='./login'><button >Login</button></a>
+            <a href='./signup'><button>Sign Up</button></a>
         </div>
     );
 }
