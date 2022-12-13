@@ -16,7 +16,7 @@ const Main = () => {
 return (
 <div className="container">
 <h1>All Matchups</h1>   
-   {matchupList.map((matchup) => {  
+   {matchupList.length > 0 ? matchupList.map((matchup) => {  
     return (
     <div className= "card bg-gray w-75 d-flex flex-row">
         <h6>Matchup created by {}</h6>
@@ -42,7 +42,8 @@ return (
 
     </div>
     );
-    })};
+    }): <h1>No Matchups Found</h1>
+    };
 
  </div>
 )

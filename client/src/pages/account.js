@@ -20,7 +20,7 @@ const Account = () => {
 return (
 <div className="container">
 <h1>My Matchups</h1>
-   {myMatchupList.map((matchup) => {  
+   {myMatchupList.length > 0 ? myMatchupList.map((matchup) => {  
     return (
     <div className= "card bg-gray w-75 d-flex flex-row">
         <div className= "">
@@ -47,7 +47,8 @@ return (
 
     </div>
     );
-    })};
+    }): <h1>No Matchups Found</h1>
+    };
 
  </div>
 )
