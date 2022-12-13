@@ -1,13 +1,21 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Init from './pages/initial'
 import Main from './pages/main';
 import Account from './pages/account';
 import Login from './pages/login';
 import Matchup from './pages/matchup';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
+    <ApolloProvider client={client}>
     <Router>
       <>
       <Routes>
@@ -20,6 +28,7 @@ function App() {
 
       </>
     </Router>
+    </ApolloProvider>
   );
 }
 
