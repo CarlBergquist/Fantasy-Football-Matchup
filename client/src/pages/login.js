@@ -80,14 +80,12 @@ export default function Login() {
                         className="form-check-input"
                         id="exampleCheck1"
                       />
-                      <label className="form-check-label">Check me out</label>
                     </div>
                     <button type="submit" className="btn btn-primary">
-                      Submit
+                      Login
                     </button>
                   </form>
                 </div>
-                Source: <a href="https://askavy.com/react-form/">React Form</a>
               </div>
             </div>
           </div>

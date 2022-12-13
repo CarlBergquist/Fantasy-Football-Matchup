@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
-
-
+import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_MATCHUPS } from "../utils/queries";
 
 //This was pulled from the week 21 mini project
 const Account = () => {
+
     const { loading, data } = useQuery(QUERY_MATCHUPS, {
         fetchPolicy: "no-cache"
     })
@@ -20,7 +19,7 @@ const Account = () => {
 return (
 <div className="container">
 <h1>My Matchups</h1>
-   {myMatchupList.map((matchup) => {  
+   {myMatchupList.length > 0 ? myMatchupList.map((matchup) => {  
     return (
     <div className= "card bg-gray w-75 d-flex flex-row">
         <div className= "">
@@ -47,7 +46,8 @@ return (
 
     </div>
     );
-    })};
+    }): <h1>No Matchups Found</h1>
+    };
 
  </div>
 )

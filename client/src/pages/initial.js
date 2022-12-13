@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import Nav from "../components/nav";
 //import profilepic from '../../assets/me.jpeg';
 //import "../../styles/about.css"
 
