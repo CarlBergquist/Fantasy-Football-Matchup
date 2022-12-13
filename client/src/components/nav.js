@@ -13,7 +13,7 @@ function NavComponent() {
     <>
       <Navbar key="lg" bg="light" expand="lg" className="mb-3 px-4">
         <Container fluid>
-          <Navbar.Brand href="#">Matchup Analyzer</Navbar.Brand>
+          <Navbar.Brand href="main">Matchup Analyzer</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-lg`}
@@ -32,7 +32,7 @@ function NavComponent() {
                   title="Account"
                   id={`offcanvasNavbarDropdown-expand-sm`}
                 >
-                  <NavDropdown.Item href="#action3">
+                  <NavDropdown.Item href="account">
                     My Matchups
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
