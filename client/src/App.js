@@ -6,6 +6,7 @@ import Main from './pages/main';
 import Account from './pages/account';
 import Login from './pages/login';
 import Matchup from './pages/matchup';
+import Signup from './pages/signup'
 import './App.css';
 
 const client = new ApolloClient({
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Init />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
         <Route path='/main' element={<Main />} />  
         <Route path='/account' element={<Account />} />  
         <Route path='/matchup' element={<Matchup />} />  
