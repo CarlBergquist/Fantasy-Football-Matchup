@@ -23,3 +23,15 @@ export const CREATE_VOTE = gql`
     }
   }
 `;
+
+export const ADD_PROFILE = gql`
+  mutation addProfile($userName: String!, $password: String!) {
+    addProfile(userName: $userName, password: $password) {
+      token
+      profile {
+        _id
+        userName
+      }
+    }
+  }
+`;
