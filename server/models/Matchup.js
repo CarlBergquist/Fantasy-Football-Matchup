@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const matchupSchema = new Schema({
+  createdBy: {
+    type: String,
+    required: true,
+  },
   player1: {
     type: String,
     required: true,

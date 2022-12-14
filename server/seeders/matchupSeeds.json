@@ -1,0 +1,41 @@
+[{
+    "createdBy":"Brian Kernighan",
+    "player1": "Devantae Adam",
+    "player2": "Saquon Barkley"
+},
+{
+    "createdBy": "Max Kanat-Alexander",
+    "player1": "AJ Brown",
+    "player2": "Alvin Kamara"
+}
+,
+{
+    "createdBy": "Why The Lucky Stiff",
+    "player1": "Jonathan Taylor",
+    "player2": "Dalvin Cook"
+}
+,
+{
+    "createdBy": "Kent Beck",
+    "player1": "Josh Jacobs",
+    "player2": "Christian McCaffery"
+}
+,
+{
+    "createdBy": "Alan Kay",
+    "player1": "Travis Kelce",
+    "player2": "Mark Andrews"
+}
+,
+{
+    "createdBy": "C.A.R. Hoare",
+    "player1": "Stefon Diggs",
+    "player2": "Ceedee Lamb"
+}
+,
+{
+    "createdBy": "C.A.R. Hoare",
+    "player1": "Adam Thelien",
+    "player2": "Juju Smith-Schuster"
+}
+]
