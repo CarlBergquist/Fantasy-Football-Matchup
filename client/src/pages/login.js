@@ -5,19 +5,19 @@ import React , { useState } from 'react';
 export default function Login() {
     {
         const [password, setPassword] = useState("");
-        const [email, setEmail] = useState("");
+        const [userName, setuserName] = useState("");
         const [passwordError, setpasswordError] = useState("");
-        const [emailError, setemailError] = useState("");
+        const [userNameError, setuserNameError] = useState("");
       
         const handleValidation = (event) => {
           let formIsValid = true;
       
-          if (!email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+          if (!userName) {
             formIsValid = false;
-            setemailError("Email Not Valid");
+            setuserNameError("User Not Found");
             return false;
           } else {
-            setemailError("");
+            setuserNameError("");
             formIsValid = true;
           }
       
@@ -54,11 +54,11 @@ export default function Login() {
                         id="EmailInput"
                         name="EmailInput"
                         aria-describedby="emailHelp"
-                        placeholder="Enter email"
-                        onChange={(event) => setEmail(event.target.value)}
+                        placeholder="Enter UserName"
+                        onChange={(event) => setuserName(event.target.value)}
                       />
                       <small id="emailHelp" className="text-danger form-text">
-                        {emailError}
+                        {userNameError}
                       </small>
                     </div>
                     <div className="form-group">

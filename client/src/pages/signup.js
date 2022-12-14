@@ -1,83 +1,84 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-//import { useMutation } from '@apollo/client';
-//import { ADD_PROFILE } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_PROFILE } from '../utils/mutations';
 
-//import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 
-export default function Signup ()  {
-  const [formState, setFormState] = useState({
-    userName: '',
-    email: '',
-    password: '',
-  });
-  //const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
-
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { userName, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [userName]: value,
+const Signup = () => {
+    const [formState, setFormState] = useState({
+        userName: '',
+        password: '',
     });
-  };
+    const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
 
-  // submit form
-const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);}
+    // update state based on form input changes
+    const handleChange = (event) => {
+        const { userName, value } = event.target;
 
-    /* try {
-      const { data } = await addProfile({
-        variables: { ...formState },
-      });
+        setFormState({
+            ...formState,
+            [userName]: value,
+        });
+    };
 
-      Auth.login(data.addProfile.token);
-    } catch (e) {
-      console.error(e);
-    }
-  }; 
- */
-  return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+    // submit form
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
 
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="name"
-                  type="text"
-                  value={formState.userName}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Sign Up!
-                </button>
-              </form>
-            
+        try {
+            const { data } = await addProfile({
+                variables: { ...formState },
+            });
 
-          </div>
+            Auth.login(data.addProfile.token);
+        } catch (e) {
+            console.error(e);
+        }
+    };
+
+    return (
+        <div className="App">
+            <div className="container">
+                <div className="row d-flex justify-content-center">
+                    <div className="col-md-4">
+                        
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="form-group">
+                                    <label>UserName</label>
+                                    <input
+                                        className="form-control"
+                                        name="userName"
+                                        type="text"
+                                        placeholder="Enter Username"
+                                        value={formState.userName}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="exampleInputPassword1"
+                                        placeholder="Password"
+                                        value={formState.password}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary">
+                                    SignUp
+                                </button>
+                            </form>
+                    
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </main>
-  );
+    );
 
-}
+};
+
+export default Signup;
