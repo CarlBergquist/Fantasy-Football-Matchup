@@ -11,16 +11,13 @@ const Signup = () => {
         userName: '',
         password: '',
     });
-    const [addProfile, { error, data }] = useMutation(ADD_PROFILE);
+    const [addProfile, { error }] = useMutation(ADD_PROFILE);
 
     // update state based on form input changes
     const handleChange = (event) => {
-        const { userName, value } = event.target;
+        const { name, value } = event.target;
+        setFormState({ ...formState, [name]: value });
 
-        setFormState({
-            ...formState,
-            [userName]: value,
-        });
     };
 
     // submit form
@@ -37,6 +34,12 @@ const Signup = () => {
         } catch (e) {
             console.error(e);
         }
+        setFormState({
+            userName: '',
+            password: ''
+          });
+          window.location.assign('/main')
+        
     };
 
     return (
@@ -46,8 +49,8 @@ const Signup = () => {
                     <div className="col-md-4">
                         
                             <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>UserName</label>
+                                <div className="form-input">
+                                    <label>Username</label>
                                     <input
                                         className="form-control"
                                         name="userName"
@@ -62,7 +65,7 @@ const Signup = () => {
                                     <input
                                         type="password"
                                         className="form-control"
-                                        id="exampleInputPassword1"
+                                        name='password'
                                         placeholder="Password"
                                         value={formState.password}
                                         onChange={handleChange}
