@@ -9,6 +9,7 @@ import Matchup from './pages/matchup';
 import Signup from './pages/signup'
 import './App.css';
 
+
 const client = new ApolloClient({
   uri: '/graphql',
   cache: new InMemoryCache(),

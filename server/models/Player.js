@@ -23,7 +23,7 @@ const playerSchema = new Schema(
   id: false,
 }
 );
-userSchema
+playerSchema
 .virtual('imageUrl')
 .get(function (){
   return `https://sleepercdn.com/content/nfl/players/thumb/${this.player_id}.jpg`
