@@ -7,11 +7,11 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
-    user: async (parent, { userName }) => {
-      return User.findOne({ userName }).populate('Matchup');
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('Matchup');
     },
-    matchups: async (parent, { userName }) => {
-      const params = userName ? { userName } : {};
+    matchups: async (parent, { username }) => {
+      const params = username ? { username } : {};
       return Matchup.find(params);
     },
    /*  thought: async (parent, { thoughtId }) => {
@@ -20,13 +20,19 @@ const resolvers = {
   },
 
   Mutation: {
-    addProfile: async (parent, { userName, password }) => {
-      const user = await User.create({ userName, password });
-      const token = signToken(user);
-      return { token, user };
+    addProfile: async (parent, args) => {
+      console.log(args)
+      try{
+        const user = await User.create(args);
+        const token = signToken(user);
+        return { token, user };
+      } catch (err) {
+        console.log(err)
+      }
+
     },
-    login: async (parent, { userName, password }) => {
-      const user = await User.findOne({ userName });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
         throw new AuthenticationError('No user found with this username');
