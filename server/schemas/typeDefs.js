@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -12,7 +12,7 @@ const typeDefs = gql`
     _id: ID
     createdBy: String
     player1: String
-    palyer2: String
+    player2: String
     player1_votes: Int
     player2_votes: Int
   }
@@ -30,7 +30,7 @@ const typeDefs = gql`
 
   type Mutation {
     addProfile(username: String!, password: String!): Auth
-    login(userName: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     createMatchup(_id: String!, techNum: Int!): Matchup
   }
 `;

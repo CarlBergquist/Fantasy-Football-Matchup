@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const CREATE_MATCHUP = gql`
   mutation createMatchup($player1: String!, $player2: String!) {
@@ -9,7 +9,6 @@ export const CREATE_MATCHUP = gql`
     }
   }
 `;
-
 
 //Not sure on the $playerNum part
 export const CREATE_VOTE = gql`
@@ -26,7 +25,7 @@ export const CREATE_VOTE = gql`
 
 export const ADD_PROFILE = gql`
   mutation addProfile($username: String!, $password: String!) {
-    addProfile(username: $userName, password: $password) {
+    addProfile(username: $username, password: $password) {
       token
       user {
         _id
@@ -47,4 +46,3 @@ export const LOGIN_USER = gql`
     }
   }
 `;
-
