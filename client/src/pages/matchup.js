@@ -3,6 +3,7 @@ import NavComponent from '../components/nav';
 //import profilepic from '../../assets/me.jpeg';
 //import "../../styles/about.css"
 
+
 export default function Matchup() {
     return ( 
     <div className="container">
