@@ -1,35 +1,35 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Matchup} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find();
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+    user: async (parent, { userName }) => {
+      return User.findOne({ userName }).populate('Matchup');
     },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+    matchups: async (parent, { userName }) => {
+      const params = userName ? { userName } : {};
+      return Matchup.find(params);
     },
-    thought: async (parent, { thoughtId }) => {
+   /*  thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
-    },
+    }, */
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addProfile: async (parent, { userName, password }) => {
+      const user = await User.create({ userName, password });
       const token = signToken(user);
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { userName, password }) => {
+      const user = await User.findOne({ userName });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('No user found with this username');
       }
 
       const correctPw = await user.isCorrectPassword(password);
@@ -42,7 +42,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
+/*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
       await User.findOneAndUpdate(
@@ -73,7 +73,7 @@ const resolvers = {
         { $pull: { comments: { _id: commentId } } },
         { new: true }
       );
-    },
+    }, */
   },
 };
 
