@@ -8,7 +8,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 export default function Login() {
-    const [userFormData, setUserFormData] = useState({ userName: '', password: '' });
+    const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
     //const [showAlert, setShowAlert] = useState(false);
   
@@ -34,7 +34,7 @@ export default function Login() {
       }
   
       setUserFormData({
-        userName: '',
+        username: '',
         password: ''
       });
     };
@@ -50,10 +50,10 @@ export default function Login() {
                       <Form.Label>Username:</Form.Label>
                       <Form.Control
                         type="text"
-                        name="userName"
+                        name="username"
                         placeholder="Enter Username"
                         onChange={handleInputChange}
-                        value={userFormData.userName}
+                        value={userFormData.username}
                         required
                       />
 

@@ -8,7 +8,7 @@ import Auth from '../utils/auth';
 
 const Signup = () => {
     const [formState, setFormState] = useState({
-        userName: '',
+        username: '',
         password: '',
     });
     const [addProfile, { error }] = useMutation(ADD_PROFILE);
@@ -35,11 +35,10 @@ const Signup = () => {
             console.error(e);
         }
         setFormState({
-            userName: '',
-            password: ''
+            username: '',
+            password: '',
           });
-          window.location.assign('/main')
-        
+
     };
 
     return (
@@ -53,10 +52,10 @@ const Signup = () => {
                                     <label>Username</label>
                                     <input
                                         className="form-control"
-                                        name="userName"
+                                        name="username"
                                         type="text"
                                         placeholder="Enter Username"
-                                        value={formState.userName}
+                                        value={formState.username}
                                         onChange={handleChange}
                                     />
                                 </div>

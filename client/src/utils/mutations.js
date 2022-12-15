@@ -25,25 +25,26 @@ export const CREATE_VOTE = gql`
 `;
 
 export const ADD_PROFILE = gql`
-  mutation addProfile($userName: String!, $password: String!) {
-    addProfile(userName: $userName, password: $password) {
+  mutation addProfile($username: String!, $password: String!) {
+    addProfile(username: $userName, password: $password) {
       token
       user {
         _id
-        userName
+        username
       }
     }
   }
 `;
 
 export const LOGIN_USER = gql`
-  mutation login($userName: String!, $password: String!) {
-    login(userName: $userName, password: $password) {
+  mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
       token
       user {
         _id
-        userName
+        username
       }
     }
   }
 `;
+

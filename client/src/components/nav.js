@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import Auth from '../utils/auth';
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
@@ -34,7 +35,7 @@ function NavComponent() {
                     My Matchups
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">Logout</NavDropdown.Item>
+                  <NavDropdown.Item onClick={Auth.logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Offcanvas.Body>
