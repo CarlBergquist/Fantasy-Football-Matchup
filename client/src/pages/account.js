@@ -34,7 +34,7 @@ return (
     <div className= "card bg-gray w-75 d-flex flex-row">
         <div className= "">
             <image>{matchup.player1.image}</image>
-            <h3>{matchup.player1.name}</h3>
+            <h3>{matchup.player1}</h3>
             <button className= "text-dark bg-green" input="">Vote</button>
             <h3>{Math}%</h3>
 
@@ -46,7 +46,7 @@ return (
 
         <div className= "">
             <image>{matchup.player2.image}</image>
-            <h3>{matchup.player2.name}</h3>
+            <h3>{matchup.player2}</h3>
             <button className= "text-dark bg-green" input="">Vote</button>
             <h3>{Math}%</h3>
 
