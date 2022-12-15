@@ -1,42 +1,42 @@
 [
   {
-    "username": "Brian Kernighan",
+    "userName": "Brian Kernighan",
     "password": "password01"
   },
   {
-    "username": "Max Kanat-Alexander",
+    "userName": "Max Kanat-Alexander",
     "password": "password02"
   },
   {
-    "username": "Why The Lucky Stiff",
+    "userName": "Why The Lucky Stiff",
     "password": "password03"
   },
   {
-    "username": "Kent Beck",
+    "userName": "Kent Beck",
     "password": "password04"
   },
   {
-    "username": "Edward V. Berard",
+    "userName": "Edward V. Berard",
     "password": "password05"
   },
   {
-    "username": "Alan Kay",
+    "userName": "Alan Kay",
     "password": "password06"
   },
   {
-    "username": "C.A.R. Hoare",
+    "userName": "C.A.R. Hoare",
     "password": "password07"
   },
   {
-    "username": "David Thomas",
+    "userName": "David Thomas",
     "password": "password08"
   },
   {
-    "username": "Donald Knuth",
+    "userName": "Donald Knuth",
     "password": "password09"
   },
   {
-    "username": "Lernantino",
+    "userName": "Lernantino",
     "password": "password10"
   }
 ]
