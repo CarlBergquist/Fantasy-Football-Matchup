@@ -2,16 +2,16 @@ const { Schema, model } = require("mongoose");
 
 const matchupSchema = new Schema({
   createdBy: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   player1: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "Player",
   },
   player2: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "Player",
   },
   player1_votes: {
     type: Number,

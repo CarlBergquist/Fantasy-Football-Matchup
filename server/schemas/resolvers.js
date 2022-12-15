@@ -1,6 +1,6 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Matchup} = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Matchup, Player } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -8,47 +8,53 @@ const resolvers = {
       return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('Matchup');
+      return User.findOne({ username }).populate("Matchup");
     },
     matchups: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Matchup.find(params);
     },
-   /*  thought: async (parent, { thoughtId }) => {
+    players: async () => {
+      return Player.find();
+    },
+    /*  thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     }, */
   },
 
   Mutation: {
     addProfile: async (parent, args) => {
-      console.log(args)
-      try{
+      console.log(args);
+      try {
         const user = await User.create(args);
         const token = signToken(user);
         return { token, user };
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-
     },
     login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this username');
+        throw new AuthenticationError("No user found with this username");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const token = signToken(user);
 
       return { token, user };
     },
-/*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
+    createMatchup: async (parent, args) => {
+      const matchup = await Matchup.create(args);
+      return matchup;
+    },
+    /*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
       await User.findOneAndUpdate(
