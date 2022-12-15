@@ -2,9 +2,14 @@ import React from 'react';
 import NavComponent from '../components/nav';
 //import profilepic from '../../assets/me.jpeg';
 //import "../../styles/about.css"
-
+import Auth from '../utils/auth';
 
 export default function Matchup() {
+    if (!Auth.loggedIn()) {
+        console.log(Auth.loggedIn)
+        return window.location.assign('/');
+
+    } else {
     return ( 
     <div className="container">
         <NavComponent />
@@ -44,4 +49,5 @@ export default function Matchup() {
             </div>
     </div>
     );
+}
 }
