@@ -10,10 +10,11 @@ const typeDefs = gql`
 
   type Player {
     _id: ID
-    player_id: Int
+    player_id: String
     full_name: String
     position: String
     team: String
+    imageUrl: String
   }
 
   type Matchup {
@@ -33,7 +34,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    matchups(_id: String!): [Matchup]
+    matchups: [Matchup]
+    matchup(_id: String!): Matchup
     players: [Player]
     player(full_name: String!): Player
   }

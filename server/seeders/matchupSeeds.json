@@ -1,41 +1,17 @@
 [{
-    "createdBy":"Brian Kernighan",
-    "player1": "Devantae Adam",
-    "player2": "Saquon Barkley"
+    "createdBy":"639a84c7620148c278fa3a00",
+    "player1": "639bc94d7d8e24bc949d700a",
+    "player2": "639bc94d7d8e24bc949d8263"
 },
 {
-    "createdBy": "Max Kanat-Alexander",
-    "player1": "AJ Brown",
-    "player2": "Alvin Kamara"
+    "createdBy": "639a84c7620148c278fa39ff",
+    "player1": "639bc94d7d8e24bc949d7f29",
+    "player2": "639bc94d7d8e24bc949d7f25"
 }
 ,
 {
-    "createdBy": "Why The Lucky Stiff",
-    "player1": "Jonathan Taylor",
-    "player2": "Dalvin Cook"
-}
-,
-{
-    "createdBy": "Kent Beck",
-    "player1": "Josh Jacobs",
-    "player2": "Christian McCaffery"
-}
-,
-{
-    "createdBy": "Alan Kay",
-    "player1": "Travis Kelce",
-    "player2": "Mark Andrews"
-}
-,
-{
-    "createdBy": "C.A.R. Hoare",
-    "player1": "Stefon Diggs",
-    "player2": "Ceedee Lamb"
-}
-,
-{
-    "createdBy": "C.A.R. Hoare",
-    "player1": "Adam Thelien",
-    "player2": "Juju Smith-Schuster"
+    "createdBy": "639a84c7620148c278fa39fe",
+    "player1": "639bc94d7d8e24bc949d89de",
+    "player2": "639bc94d7d8e24bc949d7f1f"
 }
 ]

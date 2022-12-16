@@ -5,24 +5,38 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return await User.find().populate("matchup");
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("Matchup");
+      return await User.findOne({ username }).populate("matchup");
     },
+    // from week 21 activity 26
     matchups: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Matchup.find(params);
+      return await Matchup.find(params)
+        .populate("createdBy")
+        .populate("player1")
+        .populate("player2");
     },
+    matchup: async (parent, { matchupId }) => {
+      return await Matchup.findOne({ _id: matchupId });
+    },
+
     players: async () => {
-      return Player.find();
+      return await Player.find();
     },
 
     //needs help
     player: async (parent, { full_name }) => {
-      return Player.findOne({ full_name: full_name })
-
-    }
+      return await Player.findOne({ full_name: full_name });
+    },
+    // // From activity 26 week 21
+    // me: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).populate("thoughts");
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
     /*  thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     }, */
@@ -61,7 +75,7 @@ const resolvers = {
       return matchup;
     },
     removeMatchup: async (parent, { matchupId }) => {
-      return Matchup.findOneAndDelete({ _id: matchupId })
+      return Matchup.findOneAndDelete({ _id: matchupId });
     },
 
     createVote: async (parent, { _id, playNum }) => {
@@ -73,7 +87,6 @@ const resolvers = {
       return vote;
     },
 
-  
     /*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
