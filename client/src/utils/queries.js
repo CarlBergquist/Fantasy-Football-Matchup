@@ -37,6 +37,8 @@ export const QUERY_MATCHUPS = gql`
       createdBy {
         username
       }
+      player1_votes
+      player2_votes
     }
   }
 `;
