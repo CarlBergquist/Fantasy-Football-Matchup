@@ -1,5 +1,4 @@
-import { gql } from '@apollo/client';
-
+import { gql } from "@apollo/client";
 
 //DO WE NEED THIS?
 export const QUERY_PLAYER = gql`
@@ -16,14 +15,28 @@ export const QUERY_PLAYER = gql`
 `;
 
 export const QUERY_MATCHUPS = gql`
-  query matchups($_id: String) {
-    matchups(_id: $_id) {
+  query matchups {
+    matchups {
+      player1 {
+        full_name
+        player_id
+        position
+        team
+        _id
+        imageUrl
+      }
       _id
-      createdBy
-      player1
-      player2
-      player1_votes
-      player2_votes
+      player2 {
+        full_name
+        _id
+        player_id
+        position
+        team
+        imageUrl
+      }
+      createdBy {
+        username
+      }
     }
   }
 `;
