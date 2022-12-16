@@ -33,14 +33,17 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    matchups(_id: String): [Matchup]
+    matchups(_id: String!): [Matchup]
     players: [Player]
+    player(full_name: String!): Player
   }
 
   type Mutation {
     addProfile(username: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
     createMatchup(_id: String!, player1: ID!, player2: ID!): Matchup
+    removeMatchup(_id: ID!): Matchup
+    createVote(_id: ID!): Matchup
   }
 `;
 
