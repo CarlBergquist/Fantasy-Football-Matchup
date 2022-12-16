@@ -23,7 +23,8 @@ const Account = () => {
 
     //THIS IS IMPORTANT FOR LATER
 
-    // const myMatchupList = matchupList.fitler(this.user)
+    // const myMatchupList = matchupList.filter( (x) => x == this.user)
+
     if (!Auth.loggedIn()) {
         console.log(Auth.loggedIn)
         return window.location.assign('/');
@@ -36,11 +37,13 @@ const Account = () => {
                 {myMatchupList.length > 0 ? myMatchupList.map((matchup) => {
                     return (
                         <div className="card bg-gray w-75 d-flex flex-row">
-                            <div className="">
-                                <image>{matchup.player1.image}</image>
+                            <div className="d-flex flex-column">
+                                <image>{matchup.player1.imageUrl}</image>
                                 <h3>{matchup.player1}</h3>
+                                <h2>Team: {matchup.player1.team}</h2>
+            <h2>Position: {matchup.player1.position}</h2>
                                 <button className="text-dark bg-green" input="">Vote</button>
-                                <h3>{Math}%</h3>
+                                <h3>Number of Votes: {matchup.player1_votes}</h3>
 
                             </div>
 
@@ -48,11 +51,13 @@ const Account = () => {
                                 <h2>VS</h2>
                             </div>
 
-                            <div className="">
-                                <image>{matchup.player2.image}</image>
+                            <div className="d-flex flex-column">
+                                <image>{matchup.player2.imageUrl}</image>
                                 <h3>{matchup.player2}</h3>
+                                <h2>Team: {matchup.player2.team}</h2>
+            <h2>Position: {matchup.player2.position}</h2>
                                 <button className="text-dark bg-green" input="">Vote</button>
-                                <h3>{Math}%</h3>
+                                <h3>Number of Votes: {matchup.player2_votes}</h3>
 
                             </div>
 
