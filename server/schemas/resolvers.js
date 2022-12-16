@@ -17,6 +17,12 @@ const resolvers = {
     players: async () => {
       return Player.find();
     },
+
+    //needs help
+    player: async (parent, { full_name }) => {
+      return Player.findOne({ full_name: full_name })
+
+    }
     /*  thought: async (parent, { thoughtId }) => {
       return Thought.findOne({ _id: thoughtId });
     }, */
@@ -54,6 +60,20 @@ const resolvers = {
       const matchup = await Matchup.create(args);
       return matchup;
     },
+    removeMatchup: async (parent, { matchupId }) => {
+      return Matchup.findOneAndDelete({ _id: matchupId })
+    },
+
+    createVote: async (parent, { _id, playNum }) => {
+      const vote = await Matchup.findOneAndUpdate(
+        { _id },
+        { $inc: { [`player${playNum}_votes`]: 1 } },
+        { new: true }
+      );
+      return vote;
+    },
+
+  
     /*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
       const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
