@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 
-//DO WE NEED THIS?
+//NEEDS HELP - Looking at our models - need to find player by full_name and return the _id to the matchups database in order for anything to get rendered
+
 export const QUERY_PLAYER = gql`
   query player {
     player {

@@ -4,6 +4,10 @@ import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
 import Auth from '../utils/auth';
 //This was pulled from the week 21 mini project
+
+
+//NEEDS HELP - Need to be able to filter out all of the matchups for this users matchups based on createdBy - and display on the page - also be able to delete each matchup presented there - delete from the database so it doesn't show up on the main page our account page
+
 const Account = () => {
 
     const { loading, data } = useQuery(QUERY_MATCHUPS, {

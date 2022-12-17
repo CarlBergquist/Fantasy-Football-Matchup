@@ -2,6 +2,8 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Matchup, Player } = require("../models");
 const { signToken } = require("../utils/auth");
 
+//NEEDS HELP: We are confused on a lot in this file
+
 const resolvers = {
   Query: {
     users: async () => {
