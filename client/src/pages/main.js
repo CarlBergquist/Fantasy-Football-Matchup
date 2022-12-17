@@ -4,8 +4,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
 
-// const imageUrl1 = `https://sleepercdn.com/content/nfl/players/thumb/${matchup.player1.image}.jpg`
-// const imageUrl2 = `https://sleepercdn.com/content/nfl/players/thumb/${matchup.player2.image}.jpg`
+// NEEDS HELP - We need to be able to vote on the players and after the vote, the options need to be taken away - The vote needs to go the database as a vote and show up on the page
 
 //This was pulled from the week 21 mini project
 const Main = () => {

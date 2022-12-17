@@ -1,5 +1,7 @@
 const { gql } = require("apollo-server-express");
 
+//NEEDS HELP: Specifically the mutations at the bottom of this file are what we are looking at
+
 const typeDefs = gql`
   type User {
     _id: ID
@@ -48,5 +50,8 @@ const typeDefs = gql`
     createVote(_id: ID!): Matchup
   }
 `;
+
+// addProfile works, login works - 
+// createMatchup, removeMatchup, createVote (haven't even tried) are what we are working on still
 
 module.exports = typeDefs;

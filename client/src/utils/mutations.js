@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 
+//NEEDS HELP - Need to make sure our CREATE_MATCHUP and CREATE_VOTE are targetting the correct fields, are working so the matchup is created properly, and the players that are entered in matchup.js connect to the players database by their full_name - may need a createdBy field as well so the person who created it shows up too
+
 export const CREATE_MATCHUP = gql`
   mutation createMatchup($player1: String!, $player2: String!) {
     createMatchup(player1: $player1, player2: $player2) {
