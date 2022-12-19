@@ -16,7 +16,7 @@ const resolvers = {
     matchups: async (parent, { username }) => {
       const params = username ? { username } : {};
       return await Matchup.find(params)
-        .populate("createdBy")
+       
         .populate("player1")
         .populate("player2");
     },
@@ -72,22 +72,10 @@ const resolvers = {
 
       return { token, user };
     },
-    createMatchup: async (parent, { player1, player2 }, context) => {
-      console.log(context.user);
-      if (context.user) {
-        console.log("hi");
-        console.log(context.user);
-        const matchup = await Matchup.create({
-          player1,
-          player2,
-          createdBy: context.user.username,
-        });
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { matchups: matchup._id } }
-        );
+    createMatchup: async (parent, args, context) => {
+        const matchup = await (await Matchup.create(args));
         return matchup;
-      }
+      
     },
     removeMatchup: async (parent, { matchupId }) => {
       return Matchup.findOneAndDelete({ _id: matchupId });
@@ -100,6 +88,9 @@ const resolvers = {
         { new: true }
       );
       return vote;
+    },
+    removeMatchup: async (parent, { _id }) => {
+      return Matchup.findOneAndDelete({ _id: _id });
     },
 
     /*     addThought: async (parent, { thoughtText, thoughtAuthor }) => {

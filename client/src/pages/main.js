@@ -32,7 +32,7 @@ const Main = () => {
           matchupList.map((matchup) => {
             return (
               <div className="card bg-gray w-75 d-flex flex-row">
-                <h6>Matchup created by {matchup.createdBy.username}</h6>
+                <h6>Matchup created by Carl </h6>
                 <div className="d-flex flex-column">
                   <img src={matchup.player1.imageUrl}></img>
 
