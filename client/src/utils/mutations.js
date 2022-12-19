@@ -6,8 +6,12 @@ export const CREATE_MATCHUP = gql`
   mutation createMatchup($player1: String!, $player2: String!) {
     createMatchup(player1: $player1, player2: $player2) {
       _id
-      player1
-      player2
+      player1 {
+        full_name
+      }
+      player2 {
+        full_name
+      }
     }
   }
 `;

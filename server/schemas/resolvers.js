@@ -72,9 +72,22 @@ const resolvers = {
 
       return { token, user };
     },
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
+    createMatchup: async (parent, { player1, player2 }, context) => {
+      console.log(context.user);
+      if (context.user) {
+        console.log("hi");
+        console.log(context.user);
+        const matchup = await Matchup.create({
+          player1,
+          player2,
+          createdBy: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { matchups: matchup._id } }
+        );
+        return matchup;
+      }
     },
     removeMatchup: async (parent, { matchupId }) => {
       return Matchup.findOneAndDelete({ _id: matchupId });
