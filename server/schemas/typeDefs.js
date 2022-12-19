@@ -46,7 +46,7 @@ const typeDefs = gql`
     login(username: String!, password: String!): Auth
     createMatchup(player1: String!, player2: String!): Matchup
     removeMatchup(_id: ID!): Matchup
-    createVote(_id: ID!): Matchup
+    createVote(_id: String, playNum: Int!): Matchup
   }
 `;
 

@@ -33,6 +33,7 @@ export default function Matchup() {
          formState.player1 =  queryplayer1.data.player._id
          formState.player2 =  queryplayer2.data.player._id
 
+         window.location.assign("/main")
         try {
             const { data } = await createMatchup({
                 variables: { ...formState },
