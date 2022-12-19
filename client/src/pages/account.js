@@ -54,26 +54,26 @@ const Account = () => {
         return (
             <div className="container">
                 <NavComponent />
-                <h1>My Matchups</h1>
+                <h1 className="display-2">My Matchups</h1>
                 {myMatchupList.length > 0 ? myMatchupList.map((matchup) => {
                     return (
-                        <div className="card bg-gray w-75 d-flex flex-row m-2">
+                        <div className="card bg-gray w-auto d-flex flex-row card-text-center m-2 text-center justify-content-center">
                             <div className="d-flex flex-column m-2">
                                 <img src={matchup.player1.imageUrl}></img>
-                                <h3>{matchup.player1.full_name}</h3>
+                                <h2>{matchup.player1.full_name}</h2>
                                 <h2>Team: {matchup.player1.team}</h2>
                                 <h2>Position: {matchup.player1.position}</h2>
                                 <h3>Number of Votes: {matchup.player1_votes}</h3>
 
                             </div>
 
-                            <div className="text-center m-2">
-                                <h2>VS</h2>
+                            <div className="d-flex align-items-center m-4">
+                                <h1>VS</h1>
                             </div>
 
                             <div className="d-flex flex-column m-2">
                                 <img src={matchup.player2.imageUrl}></img>
-                                <h3>{matchup.player2.full_name}</h3>
+                                <h2>{matchup.player2.full_name}</h2>
                                 <h2>Team: {matchup.player2.team}</h2>
                                 <h2>Position: {matchup.player2.position}</h2>
                                 <h3>Number of Votes: {matchup.player2_votes}</h3>
