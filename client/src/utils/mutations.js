@@ -18,11 +18,9 @@ export const CREATE_MATCHUP = gql`
 
 //Not sure on the $playerNum part
 export const CREATE_VOTE = gql`
-  mutation createVote($_id: String!, $playerNum: Int!) {
-    createVote(_id: $_id, playerNum: $playerNum) {
+  mutation createVote($_id: String, $playNum: Int!) {
+    createVote(_id: $_id, playNum: $playNum) {
       _id
-      player1
-      player2
       player1_votes
       player2_votes
     }

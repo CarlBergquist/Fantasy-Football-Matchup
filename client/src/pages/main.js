@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
 import { CREATE_VOTE } from "../utils/mutations";
+import { useState } from "react";
 
 // NEEDS HELP - We need to be able to vote on the players and after the vote, the options need to be taken away - The vote needs to go the database as a vote and show up on the page
 
@@ -12,8 +13,10 @@ import { CREATE_VOTE } from "../utils/mutations";
 
 //This was pulled from the week 21 mini project
 const Main = () => {
+  let { id } = useParams()
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
     fetchPolicy: "no-cache",
+    variables: { _id: id }
   });
   console.log(data);
 
@@ -23,18 +26,29 @@ const Main = () => {
 
 
   //NEW STUFF
-  // const [createVote, { error }] = useMutation(CREATE_VOTE);
+//   const [formState, setFormState] = useState({
+//     player: '',
+//     password: '',
+// });
+    
+  const [createVote, { error }] = useMutation(CREATE_VOTE);
 
-  // const handleVote = async (playerNum) => {
-  //   try {
-  //     await createVote({
-  //       variables: { _id: id, playerNum: playerNum },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  // onClick={() => handleVote(1)}
+  const handleVote = async (id, playNum) => {
+    console.log(playNum)
+    console.log(id)
+
+    // const { name, value } = event.target;
+    //     setFormState({ ...formState, [name]: value });
+
+    try {
+      await createVote({
+        variables: { _id: id, playNum: playNum },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
 
   //Need to pull data from player model, looking at what was made in the matchup model
@@ -60,7 +74,7 @@ const Main = () => {
                   <h2 className="">{matchup.player1.full_name}</h2>
                   <h2>Team: {matchup.player1.team}</h2>
                   <h2>Position: {matchup.player1.position}</h2>
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={() => handleVote(matchup._id, 1)}>
                     Vote
                   </button>
                   <h3>Number of Votes: {matchup.player1_votes}</h3>
@@ -75,7 +89,7 @@ const Main = () => {
                   <h2>{matchup.player2.full_name}</h2>
                   <h2>Team: {matchup.player2.team}</h2>
                   <h2>Position: {matchup.player2.position}</h2>
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={() => handleVote(matchup._id, 2)}>
                     Vote
                   </button>
                   <h3>Number of Votes: {matchup.player2_votes}</h3>
