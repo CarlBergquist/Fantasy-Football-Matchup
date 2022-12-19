@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const matchupSchema = new Schema({
-  createdBy: {
+  /* createdBy: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },
+  }, */
   player1: {
     type: Schema.Types.ObjectId,
     ref: "Player",

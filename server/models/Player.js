@@ -26,6 +26,7 @@ playerSchema.virtual("imageUrl").get(function () {
   return `https://sleepercdn.com/content/nfl/players/thumb/${this.player_id}.jpg`;
 });
 
+
 //do I need a .set as well?
 
 const Player = model("Player", playerSchema);

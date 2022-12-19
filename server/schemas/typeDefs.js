@@ -21,7 +21,6 @@ const typeDefs = gql`
 
   type Matchup {
     _id: ID
-    createdBy: User
     player1: Player
     player2: Player
     player1_votes: Int

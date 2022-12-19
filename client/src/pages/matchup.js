@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import NavComponent from '../components/nav';
 import Auth from '../utils/auth';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { CREATE_MATCHUP } from '../utils/mutations';
-
+import { QUERY_PLAYER } from "../utils/queries";
 
 //NEED HELP: When we type in player names and enter, it collects the data in the console.log, but we need that data to be matched up with the corresponding players that are in our players database, and then we need to transfer that into our matchups database so it can be displayed on the main page - we also need the createdBy to be linked to this user that just created the matchup - see account.js for another question
 export default function Matchup() {
@@ -12,7 +12,12 @@ export default function Matchup() {
         player1: '',
         player2: '',
     });
-
+    const queryplayer1 = useQuery(QUERY_PLAYER, {
+        variables: {fullName: formState.player1},
+      });
+      const queryplayer2 = useQuery(QUERY_PLAYER, {
+        variables: {fullName: formState.player2},
+      });
     const [createMatchup, { error }] = useMutation(CREATE_MATCHUP);
 
     const handleChange = (event) => {
@@ -23,7 +28,10 @@ export default function Matchup() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
+        console.log(formState.player1);
+       
+         formState.player1 =  queryplayer1.data.player._id
+         formState.player2 =  queryplayer2.data.player._id
 
         try {
             const { data } = await createMatchup({

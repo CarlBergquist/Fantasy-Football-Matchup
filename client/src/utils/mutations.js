@@ -52,3 +52,11 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const REMOVE_MATCHUP = gql`
+  mutation removeMatchup($_id: ID!) {
+    removeMatchup(_id: $_id) {
+      _id
+    }
+  }
+`;
