@@ -6,10 +6,13 @@ import Footer from "../components/footer";
 export default function Init() {
 
     return (
-        <div className="">
-            <h1>Fantasy Football Matchup Analyzer</h1>
-            <a href='./login'><button >Login</button></a>
-            <a href='./signup'><button>Sign Up</button></a>
+        <div className="m-2">
+            <h1 className="display-1 d-flex justify-content-center">Fantasy Football Matchup Analyzer</h1>
+            <div className="d-flex justify-content-center">
+            <a href='./login'className="m-2" ><button className="btn btn-primary">Login</button></a>
+            <a href='./signup'className="m-2"><button className="btn btn-primary">Sign Up</button></a>
+            </div>
+            <img src="https://static.www.nfl.com/image/private/t_q-best/league/pyzxubxdovaubclvbvf0" className="img-fluid max-width: 40% height: auto"></img>
             <Footer />
         </div>
     );

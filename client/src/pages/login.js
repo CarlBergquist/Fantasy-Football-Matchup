@@ -41,10 +41,13 @@ export default function Login() {
       
         return (
             <>
-          <div className="">
+          <div className="App">
             <div className="container">
               <div className="row d-flex justify-content-center">
-                <div className="col-md-4">
+              <div className="bg-secondary text-light">
+                <h1 className="display-1">LOG IN</h1>
+                </div>
+                <div className="col-md-4 m-2">
                   <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                     <Form.Group>
                       <Form.Label>Username:</Form.Label>
@@ -71,7 +74,7 @@ export default function Login() {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-primary" >
+                    <button type="submit" className="btn btn-primary m-2" >
                       Login
                     </button>
                   </Form>

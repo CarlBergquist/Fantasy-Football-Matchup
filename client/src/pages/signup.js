@@ -45,7 +45,10 @@ const Signup = () => {
         <div className="App">
             <div className="container">
                 <div className="row d-flex justify-content-center">
-                    <div className="col-md-4">
+                <div className="bg-secondary text-light">
+                <h1 className="display-1">SIGN UP</h1>
+                </div>
+                    <div className="col-md-4 m-2">
                         
                             <form onSubmit={handleFormSubmit}>
                                 <div className="form-input">
@@ -70,8 +73,8 @@ const Signup = () => {
                                         onChange={handleChange}
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary">
-                                    SignUp
+                                <button type="submit" className="btn btn-primary m-2">
+                                    Sign Up
                                 </button>
                             </form>
                     

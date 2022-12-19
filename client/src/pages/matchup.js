@@ -59,13 +59,14 @@ export default function Matchup() {
                 <NavComponent />
                 <div className="card w-200 d-flex align-items-center">
 
-                    <div className="text-center m-4 bg-primary">
-                        <h1 className="m-1">CREATE YOUR MATCHUP</h1>
+                    <div className="text-center m-4 border border-secondary bg-secondary text-light">
+                        <h1 className="m-1 display-2">CREATE YOUR MATCHUP</h1>
                     </div>
                     <form onSubmit={handleFormSubmit}>
                         <div className="text-center m-4">
                             <h1>Enter Player 1 </h1>
                             <input
+                            className="input-group input-group-lg"
                                 name="player1"
                                 type="text"
                                 placeholder='Enter player 1 name'
@@ -76,16 +77,17 @@ export default function Matchup() {
 
 
                         <div className="text-center m-4">
-                            <h1>VS </h1>
+                            <h1 className=''>VS </h1>
                         </div>
 
 
                         <div className=" text-center m-4">
                             <h1>Enter Player 2</h1>
                             <input
+                            className="input-group input-group-lg"
                                 name="player2"
                                 type="text"
-                                placeholder='Enter player 1 name'
+                                placeholder='Enter player 2 name'
                                 value={formState.player2}
                                 onChange={handleChange} 
                                 />
