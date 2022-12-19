@@ -45,13 +45,13 @@ const typeDefs = gql`
   type Mutation {
     addProfile(username: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    createMatchup(_id: String!, player1: ID!, player2: ID!): Matchup
+    createMatchup(player1: String!, player2: String!): Matchup
     removeMatchup(_id: ID!): Matchup
     createVote(_id: ID!): Matchup
   }
 `;
 
-// addProfile works, login works - 
+// addProfile works, login works -
 // createMatchup, removeMatchup, createVote (haven't even tried) are what we are working on still
 
 module.exports = typeDefs;
