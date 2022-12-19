@@ -23,18 +23,18 @@ const Main = () => {
 
 
   //NEW STUFF
-  // const [createVote, { error }] = useMutation(CREATE_VOTE);
+  const [createVote, { error }] = useMutation(CREATE_VOTE);
 
-  // const handleVote = async (playerNum) => {
-  //   try {
-  //     await createVote({
-  //       variables: { _id: id, playerNum: playerNum },
-  //     });
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-  // onClick={() => handleVote(1)}
+  const handleVote = async (_id, playNum) => {
+    try {
+      await createVote({
+        variables: { _id: _id, playNum: playNum },
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
 
 
   //Need to pull data from player model, looking at what was made in the matchup model
@@ -60,7 +60,7 @@ const Main = () => {
                   <h2 className="">{matchup.player1.full_name}</h2>
                   <h2>Team: {matchup.player1.team}</h2>
                   <h2>Position: {matchup.player1.position}</h2>
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={() => handleVote(1)}>
                     Vote
                   </button>
                   <h3>Number of Votes: {matchup.player1_votes}</h3>
@@ -75,7 +75,7 @@ const Main = () => {
                   <h2>{matchup.player2.full_name}</h2>
                   <h2>Team: {matchup.player2.team}</h2>
                   <h2>Position: {matchup.player2.position}</h2>
-                  <button className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={() => handleVote(2)}>
                     Vote
                   </button>
                   <h3>Number of Votes: {matchup.player2_votes}</h3>
