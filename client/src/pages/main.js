@@ -68,7 +68,7 @@ const Main = () => {
                 className="card bg-gray w-auto d-flex flex-row card-text-center m-2 text-center justify-content-center"
               >
                 <div className="d-flex flex-column m-2">
-                  <img src={matchup.player1.imageUrl}></img>
+                  <img src={matchup.player1.imageUrl} alt={matchup.player1.full_name}></img>
 
                   <h2 className="">{matchup.player1.full_name}</h2>
                   <h2>Team: {matchup.player1.team}</h2>
@@ -87,7 +87,7 @@ const Main = () => {
                 </div>
 
                 <div className="d-flex flex-column m-2">
-                  <img src={matchup.player2.imageUrl}></img>
+                  <img src={matchup.player2.imageUrl} alt={matchup.player2.full_name}></img>
                   <h2>{matchup.player2.full_name}</h2>
                   <h2>Team: {matchup.player2.team}</h2>
                   <h2>Position: {matchup.player2.position}</h2>
