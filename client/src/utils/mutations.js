@@ -52,7 +52,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const REMOVE_MATCHUP = gql`
-  mutation removeMatchup($_id: ID!) {
+  mutation removeMatchup($_id: String) {
     removeMatchup(_id: $_id) {
       _id
     }
