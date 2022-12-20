@@ -18,7 +18,7 @@ This application is covered under the MIT License.
 ## Questions
 For more information, please reference the GitHub profile [here](https://github.com/CarlBergquist), or reach out to my email: j.d.warrick@comcast.net.
 ## Media
-[Link to Deployed application]()
+[Link to Deployed application](https://blooming-hollows-39253.herokuapp.com/)
 -----
 **Screenshot of main page of program:**
 ![Screenshot of our program](matchup-analyzer-main.png)
