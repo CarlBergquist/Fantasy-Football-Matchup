@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 //import profilepic from '../../assets/me.jpeg';
 //import "../../styles/about.css"
 import Auth from '../utils/auth';
-import { Form, Button, Alert } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
 import { useMutation } from '@apollo/client';
@@ -15,7 +15,7 @@ export default function Login() {
     //const [showAlert, setShowAlert] = useState(false);
     const navigate = useNavigate();
     
-    const [loginUser, { error }] = useMutation(LOGIN_USER);
+    const [ loginUser ] = useMutation(LOGIN_USER);
   
     const handleInputChange = (event) => {
       const { name, value } = event.target;

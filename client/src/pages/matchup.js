@@ -19,7 +19,7 @@ export default function Matchup() {
       const queryplayer2 = useQuery(QUERY_PLAYER, {
         variables: {fullName: formState.player2},
       });
-    const [createMatchup, { error }] = useMutation(CREATE_MATCHUP, {
+    const [ createMatchup ] = useMutation(CREATE_MATCHUP, {
         refetchQueries: QUERY_MATCHUPS
     });
 

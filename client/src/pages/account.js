@@ -1,4 +1,4 @@
-import { Link , useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
@@ -10,7 +10,7 @@ import { REMOVE_MATCHUP } from "../utils/mutations";
 
 const Account = () => {
   const navigate = useNavigate();
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const { data } = useQuery(QUERY_MATCHUPS, {
     fetchPolicy: "no-cache",
   });
   //FOR NOW, to RENDER PAGE
@@ -66,7 +66,7 @@ const Account = () => {
                 className="card bg-gray w-auto d-flex flex-row card-text-center m-2 text-center justify-content-center"
               >
                 <div className="d-flex flex-column m-2">
-                  <img src={matchup.player1.imageUrl}></img>
+                  <img src={matchup.player1.imageUrl} alt={matchup.player1.full_name}></img>
                   <h2>{matchup.player1.full_name}</h2>
                   <h2>Team: {matchup.player1.team}</h2>
                   <h2>Position: {matchup.player1.position}</h2>
@@ -78,7 +78,7 @@ const Account = () => {
                 </div>
 
                 <div className="d-flex flex-column m-2">
-                  <img src={matchup.player2.imageUrl}></img>
+                  <img src={matchup.player2.imageUrl} alt={matchup.player2.full_name}></img>
                   <h2>{matchup.player2.full_name}</h2>
                   <h2>Team: {matchup.player2.team}</h2>
                   <h2>Position: {matchup.player2.position}</h2>

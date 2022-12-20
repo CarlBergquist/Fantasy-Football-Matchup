@@ -1,10 +1,9 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Auth from "../utils/auth";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
 import { CREATE_VOTE } from "../utils/mutations";
-import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 // NEEDS HELP - We need to be able to vote on the players and after the vote, the options need to be taken away - The vote needs to go the database as a vote and show up on the page
@@ -13,7 +12,7 @@ import { useNavigate } from 'react-router-dom'
 const Main = () => {
   let navigate = useNavigate();
   let { id } = useParams();
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
+  const {  data } = useQuery(QUERY_MATCHUPS, {
     variables: { _id: id },
   });
   console.log(data);
@@ -28,7 +27,7 @@ const Main = () => {
   //     password: '',
   // });
 
-  const [createVote, { error }] = useMutation(CREATE_VOTE, {
+  const [ createVote ] = useMutation(CREATE_VOTE, {
     refetchQueries: QUERY_MATCHUPS,
   });
 

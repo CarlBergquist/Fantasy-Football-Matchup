@@ -13,7 +13,7 @@ export default function Init() {
             <Link to='/login'className="m-2" ><button className="btn btn-primary">Login</button></ Link>
             <Link to='/signup'className="m-2"><button className="btn btn-primary">Sign Up</button></Link>
             </div>
-            <img src="https://static.www.nfl.com/image/private/t_q-best/league/pyzxubxdovaubclvbvf0" className="img-fluid max-width: 40% height: auto"></img>
+            <img src="https://static.www.nfl.com/image/private/t_q-best/league/pyzxubxdovaubclvbvf0" alt="NFL Logo" className="img-fluid max-width: 40% height: auto"></img>
             <Footer />
         </div>
     );
