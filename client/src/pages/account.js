@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
@@ -9,6 +9,7 @@ import { REMOVE_MATCHUP } from "../utils/mutations";
 //NEEDS HELP - Need to be able to filter out all of the matchups for this users matchups based on createdBy - and display on the page - also be able to delete each matchup presented there - delete from the database so it doesn't show up on the main page our account page
 
 const Account = () => {
+  const navigate = useNavigate();
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
     fetchPolicy: "no-cache",
   });
@@ -38,7 +39,7 @@ const Account = () => {
         throw new Error("something went wrong!");
       }
       removeMatchup(_id);
-      window.location.reload();
+      navigate('/account');
     } catch (err) {
       console.error(error);
     }
@@ -51,7 +52,7 @@ const Account = () => {
 
   if (!Auth.loggedIn()) {
     console.log(Auth.loggedIn);
-    return window.location.assign("/");
+    return navigate('/');
   } else {
     return (
       <div className="container">

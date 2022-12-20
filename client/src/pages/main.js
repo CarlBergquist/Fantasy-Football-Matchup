@@ -5,11 +5,13 @@ import { QUERY_MATCHUPS } from "../utils/queries";
 import NavComponent from "../components/nav";
 import { CREATE_VOTE } from "../utils/mutations";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 // NEEDS HELP - We need to be able to vote on the players and after the vote, the options need to be taken away - The vote needs to go the database as a vote and show up on the page
 
 //This was pulled from the week 21 mini project
 const Main = () => {
+  let navigate = useNavigate();
   let { id } = useParams();
   const { loading, data } = useQuery(QUERY_MATCHUPS, {
     variables: { _id: id },
@@ -52,7 +54,7 @@ const Main = () => {
   //   console.log(matchupList);
   if (!Auth.loggedIn()) {
     console.log(Auth.loggedIn);
-    return window.location.assign("/");
+    return navigate("/");
   } else {
     return (
       <div className="container">

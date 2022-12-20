@@ -3,15 +3,17 @@ import React , { useState } from 'react';
 //import "../../styles/about.css"
 import Auth from '../utils/auth';
 import { Form, Button, Alert } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+
 
 export default function Login() {
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
     //const [showAlert, setShowAlert] = useState(false);
-  
+    const navigate = useNavigate();
     
     const [loginUser, { error }] = useMutation(LOGIN_USER);
   
@@ -29,6 +31,7 @@ export default function Login() {
         });
   
         Auth.login(data.login.token);
+        navigate('/main')
       } catch (e) {
         console.error(e);
       }

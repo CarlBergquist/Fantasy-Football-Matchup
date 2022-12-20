@@ -4,10 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Auth from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
 function NavComponent() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar key="lg" bg="light" expand="lg" className="mb-3 px-4">
@@ -35,7 +37,10 @@ function NavComponent() {
                     My Matchups
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={Auth.logout}>Logout</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => {
+                    Auth.logout();
+                    navigate('/');
+                  }}>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Offcanvas.Body>

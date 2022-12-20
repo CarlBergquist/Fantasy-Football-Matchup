@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_PROFILE } from '../utils/mutations';
-
+import { useNavigate } from 'react-router-dom'
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -11,6 +11,7 @@ const Signup = () => {
         username: '',
         password: '',
     });
+    const navigate = useNavigate();
     const [addProfile, { error }] = useMutation(ADD_PROFILE);
 
     // update state based on form input changes
@@ -31,6 +32,7 @@ const Signup = () => {
             });
 
             Auth.login(data.addProfile.token);
+            navigate('/main')
         } catch (e) {
             console.error(e);
         }
