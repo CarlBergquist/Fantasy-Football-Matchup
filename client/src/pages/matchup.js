@@ -67,10 +67,7 @@ export default function Matchup() {
                     <div className="text-center m-4 border border-secondary bg-secondary text-light">
                         <h1 className="m-1 display-2">CREATE YOUR MATCHUP</h1>
                     </div>
-                    <form onSubmit={() => {
-                        handleFormSubmit;
-                        navigate("/main");
-                    }}>
+                    <form onSubmit={handleFormSubmit}>
                         <div className="text-center m-4">
                             <h1>Enter Player 1 </h1>
                             <input
