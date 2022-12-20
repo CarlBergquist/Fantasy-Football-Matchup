@@ -39,7 +39,7 @@ const Account = () => {
         throw new Error("something went wrong!");
       }
       removeMatchup(_id);
-      navigate('/account');
+      window.location.reload();
     } catch (err) {
       console.error(error);
     }

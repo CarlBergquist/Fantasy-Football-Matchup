@@ -45,6 +45,7 @@ export default function Matchup() {
             console.log(data)
             
             //Auth.login(data.addProfile.token);
+            window.location.assign('/main')
         } catch (e) {
             console.error(e);
         }
